@@ -1,0 +1,20 @@
+# YAML file for IAC Kics Scanning of terraform codes in this repository / branch
+
+name: IAC Scan
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - '*'
+permissions:
+  security-events: write
+  pull-requests: write
+  contents: write
+  actions: read
+  
+jobs:
+  call-workflow-ci-scan-kics-job:
+    uses: amplify-health/common-reference-workflows-iac/.github/workflows/iac-ci-scan.yml@main
